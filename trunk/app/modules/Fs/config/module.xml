@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+	<configuration>
+		<enabled>On</enabled>
+		<title>Fs Module</title>
+		<version></version>
+		<name>Fs</name>
+		<authors>
+			<author></author>
+		</authors>
+		<homepage></homepage>
+		<update_url></update_url>
+		<description></description>
+	</configuration>
+</configurations>
