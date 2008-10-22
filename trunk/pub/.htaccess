@@ -14,7 +14,7 @@ AcceptPathInfo On
 RewriteEngine Off
 
 # ********** THIS IS THE ONLY SETTING YOU SHOULD HAVE TO CHANGE **********
-RewriteBase /var/www/project/pub/
+RewriteBase /home/james/www/project/pub/
 # e.g. RewriteBase /~dzuelke/_projects/agavi/trunk/samples/pub/
 # usually just "/" if your application's pub dir is the document root
 

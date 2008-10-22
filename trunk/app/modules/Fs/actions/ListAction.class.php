@@ -38,12 +38,11 @@ class Fs_ListAction extends ProjectBaseAction
 	public function executeRead(AgaviRequestDataHolder $rd)
 	{
 		//$this->setupHtml( $rd );
-		$path = $rd->getParameter( 'path' );
-
-		$m = $this->context->getModel( 'Dir', 'Fs' );
-		$m->initialize( $path );
-
-		$this->setAttribute( 'listing', $m->getListing() );
+		$path = "/home/james/";//$rd->getParameter( 'path' );
+		
+		$m = $this->context->getModel( 'Dir', 'Fs', array( $path ) );
+		$m->load();
+		$this->setAttribute( 'listing', $m->getContentsList() );
 		$this->setAttribute( 'path', $path );
 
 		return 'Success';
