@@ -20,11 +20,29 @@
 							</parameter>
 						</parameters>
 					</renderer>
+
+					<renderer name="smarty" class="AgaviSmartyRenderer">
+						<parameters>
+							<parameter name="assigns">
+								<parameters>
+									<parameter name="routing">ro</parameter>
+									<parameter name="request">rq</parameter>
+									<parameter name="controller">ct</parameter>
+									<parameter name="user">us</parameter>
+									<parameter name="translation_manager">tm</parameter>
+									<parameter name="request_data">rd</parameter>
+								</parameters>
+							</parameter>
+						</parameters>
+					</renderer>
+
 				</renderers>
 				<layouts default="default"> 
 					<layout name="default"> 
 						<layers>
 							<layer name="content" /> 
+							<layer name="nav" />
+							<layer name="header" />  
 						</layers> 
 					</layout> 
 				</layouts> 
