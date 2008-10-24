@@ -11,6 +11,13 @@
 				</parameter>
 			</filter>
 
+			<filter name="MessagesFilter" class="MessagesFilter">
+				<parameter name="comment">On</parameter>
+				<parameter name="output_types">
+					<parameter>html</parameter>
+				</parameter>
+			</filter>
+
 		</filters>
 	</configuration>
 
