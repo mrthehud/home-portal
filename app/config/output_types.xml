@@ -37,15 +37,29 @@
 					</renderer>
 
 				</renderers>
-				<layouts default="default"> 
-					<layout name="default"> 
-						<layers>
-							<layer name="content" /> 
-							<layer name="nav" />
-							<layer name="header" />  
-						</layers> 
-					</layout> 
-				</layouts> 
+					
+				<layouts default="default">
+			
+				  <!-- The default layout for HTML includes two layers: the
+				       "content" layer is used by the View to render its
+				       output, and the "decorator" layer is preconfigured with
+				       the decorator template of the Public module -->
+			
+				  <layout name="default">
+			
+				    <!-- This is the topmost layer. Views would render their output here, using a default
+				    template name that matches the name of the View. -->
+				    <layer name="content" />
+			
+				    <!-- The output of the above layer will fall through into this fixed layer, which is preconfigured
+				    to render the decorator template. The content of the output becomes available to us here
+				    through $inner (see app/modules/Public/templates/decorator.php) -->
+				    <layer name="decorator">
+				      <parameter name="template">main</parameter>
+				      <parameter name="directory">%core.module_dir%/Public/templates</parameter>
+				    </layer>
+				  </layout>
+				</layouts>
 				<parameters>
 					<parameter name="http_headers">
 						<parameter name="Content-Type">text/html; charset=UTF-8</parameter>

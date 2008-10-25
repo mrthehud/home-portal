@@ -26,7 +26,7 @@
 		</div>
 		<div id='main_content'>
 			<div id='content' class='border'>
-				<p>Content</p>{$slots.inner}
+				<p>Content</p>{$template.inner}
 			</div>
 		</div>
 	</div>

@@ -51,8 +51,13 @@ class ProjectBaseView extends AgaviView
 	
 	public function setupHtml(AgaviRequestDataHolder $rd, $layoutName = null)
 	{
+		if($layoutName === null && $this->getContainer()->getParameter('is_slot', false)) {
+			$layoutName = self::DEFAULT_SLOT_LAYOUT_NAME;
+		}
 		$this->loadLayout($layoutName);
-		$this->setAttribute('messages', Messages::getMessages());
+		
+		// also set a default title just to avoid warnings
+		$this->setAttribute('title', '');
 	}
 }
 
