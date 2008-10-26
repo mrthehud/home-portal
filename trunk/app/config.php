@@ -11,7 +11,7 @@
 // | This constant will be auto-set by Agavi if you do not supply it.          |
 // | The default value is: <false>                                             |
 // +---------------------------------------------------------------------------+
-// AgaviConfig::set('core.debug', true);
+AgaviConfig::set('core.debug', true);
 
 // +---------------------------------------------------------------------------+
 // | An absolute filesystem path to the agavi package. This directory          |
@@ -20,7 +20,7 @@
 // | This constant will be auto-set by Agavi if you do not supply it.          |
 // | The default value is the name of the directory "agavi.php" resides in.    |
 // +---------------------------------------------------------------------------+
-// AgaviConfig::set('core.agavi_dir', '/usr/share/php/agavi');
+// AgaviConfig::set('core.agavi_dir', '%%PATH_TO_AGAVI%%');
 
 // +---------------------------------------------------------------------------+
 // | An absolute filesystem path to your web application directory. This       |
@@ -42,7 +42,7 @@ AgaviConfig::set('core.app_dir', dirname(__FILE__));
 // | This constant will be auto-set by Agavi if you do not supply it.          |
 // | The default value is: "<core.app_dir>/cache"                              |
 // +---------------------------------------------------------------------------+
-// AgaviConfig::set('core.cache_dir', AgaviConfig::get('core.app_dir') . '/cache');
+AgaviConfig::set('core.cache_dir', AgaviConfig::get('core.app_dir') . '/../cache');
 
 // +---------------------------------------------------------------------------+
 // | You may also modify the following other directives in this file:          |
@@ -52,5 +52,7 @@ AgaviConfig::set('core.app_dir', dirname(__FILE__));
 // |  - core.module_dir   (defaults to "<core.app_dir>/modules")               |
 // |  - core.template_dir (defaults to "<core.app_dir>/templates")             |
 // +---------------------------------------------------------------------------+
+
+date_default_timezone_set('Europe/London');
 
 ?>

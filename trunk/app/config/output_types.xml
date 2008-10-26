@@ -1,72 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurations xmlns="http://agavi.org/agavi/1.0/config">
+<configurations xmlns="http://agavi.org/agavi/1.0/config" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-	<configuration>
+	<sandbox>
+
+		<renderers default="smarty">
+			
+			<renderer name="php" class="AgaviPhpRenderer">
+				<parameter name="assigns">
+					<parameter name="routing">ro</parameter>
+					<parameter name="request">rq</parameter>
+					<parameter name="controller">ct</parameter>
+					<parameter name="user">us</parameter>
+					<parameter name="translation_manager">tm</parameter>
+					<parameter name="request_data">rd</parameter>
+				</parameter>
+			</renderer>
+
+			<renderer name="smarty" class="AgaviSmartyRenderer">
+				<parameter name="assigns">
+					<parameter name="routing">ro</parameter>
+					<parameter name="request">rq</parameter>
+					<parameter name="controller">ct</parameter>
+					<parameter name="user">us</parameter>
+					<parameter name="translation_manager">tm</parameter>
+					<parameter name="request_data">rd</parameter>
+				</parameter>
+			</renderer>
+			
+		</renderers>
+		
+		<layouts default="default">
+			
+			<layout name="default">
+				<layer name="content" />
+				<layer name="decorator">
+					<slot name="menu" module="Default" action="Menu" />
+					<parameter name="template">Master</parameter>
+				</layer>
+			</layout>
+			
+			<layout name="slot">
+				<layer name="content" />
+			</layout>
+			
+		</layouts>
+
+	</sandbox>
+
+	<configuration context="web">
 		<output_types default="html">
 
 			<output_type name="html">
-				<renderers default="php">
-					<renderer name="php" class="AgaviPhpRenderer">
-						<parameters>
-							<parameter name="assigns">
-								<parameters>
-									<parameter name="routing">ro</parameter>
-									<parameter name="request">rq</parameter>
-									<parameter name="controller">ct</parameter>
-									<parameter name="user">us</parameter>
-									<parameter name="translation_manager">tm</parameter>
-									<parameter name="request_data">rd</parameter>
-								</parameters>
-							</parameter>
-						</parameters>
-					</renderer>
-
-					<renderer name="smarty" class="AgaviSmartyRenderer">
-						<parameters>
-							<parameter name="assigns">
-								<parameters>
-									<parameter name="routing">ro</parameter>
-									<parameter name="request">rq</parameter>
-									<parameter name="controller">ct</parameter>
-									<parameter name="user">us</parameter>
-									<parameter name="translation_manager">tm</parameter>
-									<parameter name="request_data">rd</parameter>
-								</parameters>
-							</parameter>
-						</parameters>
-					</renderer>
-
-				</renderers>
-					
-				<layouts default="default">
-			
-				  <!-- The default layout for HTML includes two layers: the
-				       "content" layer is used by the View to render its
-				       output, and the "decorator" layer is preconfigured with
-				       the decorator template of the Public module -->
-			
-				  <layout name="default">
-			
-				    <!-- This is the topmost layer. Views would render their output here, using a default
-				    template name that matches the name of the View. -->
-				    <layer name="content" />
-			
-				    <!-- The output of the above layer will fall through into this fixed layer, which is preconfigured
-				    to render the decorator template. The content of the output becomes available to us here
-				    through $inner (see app/modules/Public/templates/decorator.php) -->
-				    <layer name="decorator">
-				      <parameter name="template">main</parameter>
-				      <parameter name="directory">%core.module_dir%/Public/templates</parameter>
-				    </layer>
-				  </layout>
-				</layouts>
-				<parameters>
-					<parameter name="http_headers">
-						<parameter name="Content-Type">text/html; charset=UTF-8</parameter>
-					</parameter>
-				</parameters>
+				<xi:include xpointer="xmlns(a=http://agavi.org/agavi/1.0/config) xpointer(/a:configurations/a:sandbox/a:renderers)" />
+				<xi:include xpointer="xmlns(a=http://agavi.org/agavi/1.0/config) xpointer(/a:configurations/a:sandbox/a:layouts)" />
+				
+				<parameter name="http_headers">
+					<parameter name="Content-Type">text/html; charset=UTF-8</parameter>
+				</parameter>
 			</output_type>
 
+			<output_type name="xhtml">
+				<xi:include xpointer="xmlns(a=http://agavi.org/agavi/1.0/config) xpointer(/a:configurations/a:sandbox/a:renderers)" />
+				<xi:include xpointer="xmlns(a=http://agavi.org/agavi/1.0/config) xpointer(/a:configurations/a:sandbox/a:layouts)" />
+				
+				<parameter name="http_headers">
+					<parameter name="Content-Type">application/xhtml+xml; charset=UTF-8</parameter>
+				</parameter>
+			</output_type>
+
+		</output_types>
+	</configuration>
+
+	<configuration context="xmlrpc">
+		<output_types default="xmlrpc">
+
+			<output_type name="xmlrpc">
+				<parameter name="encoding">UTF-8</parameter>
+			</output_type>
+
+		</output_types>
+	</configuration>
+
+	<configuration context="soap">
+		<output_types default="soap">
+
+			<output_type name="soap" />
+
+		</output_types>
+	</configuration>
+
+	<configuration context="wsdl">
+		<output_types default="wsdl">
+			
+			<output_type name="wsdl">
+				<parameter name="http_headers">
+					<parameter name="Content-Type">text/xml; charset=UTF-8</parameter>
+				</parameter>
+			</output_type>
+			
 		</output_types>
 	</configuration>
 

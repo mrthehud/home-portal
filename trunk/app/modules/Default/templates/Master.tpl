@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<base href="{$template.base_href}">
-	<title>Index Success!</title>
-	<link rel='stylesheet' type="text/css" href='{$template.base_href}include/css/sitewide.css' />
+	<base href="{$ro->getBaseHref()}">
+	<title>{$template.title}</title>
+	<link rel='stylesheet' type="text/css" href='/include/css/sitewide.css' />
 	<!-- Will change to an action when users are implemented -->
-	<link rel='stylesheet' type="text/css" href='{$template.base_href}include/css/user.css' />
+	<link rel='stylesheet' type="text/css" href='/include/css/user.css' />
 </head>
 <body>
 	<div id='top'>
