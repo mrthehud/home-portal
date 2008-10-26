@@ -3,7 +3,7 @@
 	<configuration>
 		<routes>
 			<route pattern="^/$" module="%actions.default_module%" action="%actions.default_action%" />
-			<route name="style" pattern="^/style/user/" module="%actions.default_module%" action="Style" output_type="css" stop="true" />
+			<route name="style" pattern="^/style/user/$" module="%actions.default_module%" action="Style" output_type="css" stop="true" />
 
 			<route pattern="^/browser$" module="Fs" action="Index" method="read">
 				<route name=".index" pattern="^/list/(path:.*)$" module="Fs" action="List" method="read" />

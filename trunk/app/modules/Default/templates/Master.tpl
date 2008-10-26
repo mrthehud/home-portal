@@ -6,7 +6,7 @@
 	<title>{$template.title}</title>
 	<link rel='stylesheet' type="text/css" href='/include/css/sitewide.css' />
 	<!-- Will change to an action when users are implemented -->
-	<link rel='stylesheet' type="text/css" href='/include/css/user.css' />
+	<link rel='stylesheet' type="text/css" href='{$ro->gen('style')}' />
 </head>
 <body>
 	<div id='top'>
@@ -18,9 +18,7 @@
 		<div id='left'>
 			<div id='nav' class='border'>
 				<ul>
-					<li>Navigation</li>
-					<li>Navigation</li>
-					<li>Navigation</li>
+					{$template.slots.menu}
 				</ul>
 			</div>		
 		</div>

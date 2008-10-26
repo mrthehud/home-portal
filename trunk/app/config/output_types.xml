@@ -34,7 +34,7 @@
 			<layout name="default">
 				<layer name="content" />
 				<layer name="decorator">
-					<slot name="menu" module="Default" action="Menu" />
+					<!--<slot name="menu" module="Default" action="Menu" />-->
 					<parameter name="template">Master</parameter>
 				</layer>
 			</layout>
@@ -67,6 +67,12 @@
 					<parameter name="Content-Type">application/xhtml+xml; charset=UTF-8</parameter>
 				</parameter>
 			</output_type>
+
+			<output_type name="css">
+				<parameter name="http_headers">
+					<parameter name="Content-Type">text/css; charset=UTF-8</parameter>
+				</parameter>
+			</output_type>		
 
 		</output_types>
 	</configuration>
