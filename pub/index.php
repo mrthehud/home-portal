@@ -16,6 +16,8 @@ require('../app/config.php');
 // | In debug mode among other things the cache is cleaned on every request.   |
 // +---------------------------------------------------------------------------+
 Agavi::bootstrap('development');
+define('SMARTY_DIR', AgaviConfig::get('core.lib_dir').'/smarty/libs/');
+
 
 // +---------------------------------------------------------------------------+
 // | Call the controller's dispatch method on the default context              |

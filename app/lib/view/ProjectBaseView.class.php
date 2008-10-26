@@ -48,16 +48,23 @@ class ProjectBaseView extends AgaviView
 			get_class()
 		));
 	}
+
+	public function executeXhtml(AgaviRequestDataHolder $rd)
+	{
+		if(method_exists($this, 'executeHtml')) {
+			return $this->executeHtml($rd);
+		} else {
+			return $this->execute($rd);
+		}
+	}
 	
 	public function setupHtml(AgaviRequestDataHolder $rd, $layoutName = null)
 	{
-		if($layoutName === null && $this->getContainer()->getParameter('is_slot', false)) {
-			$layoutName = self::DEFAULT_SLOT_LAYOUT_NAME;
-		}
 		$this->loadLayout($layoutName);
 		
 		// also set a default title just to avoid warnings
 		$this->setAttribute('title', '');
+
 	}
 }
 
